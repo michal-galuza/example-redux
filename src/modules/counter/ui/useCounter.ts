@@ -2,10 +2,10 @@ import { ChangeEvent, useCallback, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import { RootStoreType } from "./store/store";
-import * as counterActions from "./store/counter";
+import { RootStoreType } from "../../../store/store";
+import { counterActions } from "../../../store/counter";
 
-export const useApp = () => {
+export const useCounter = () => {
   const [divide, setDivide] = useState<number>(0);
   const [multiply, setMultiply] = useState<number>(0);
 
