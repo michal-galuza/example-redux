@@ -1,4 +1,5 @@
 import { IAction } from "../../action";
+import { createAction } from "../../action-creator";
 import { CounterActionsNamesEnum } from "./counter-actions-names.enum";
 
 export interface ICounterPoweByValueActionPayload {
@@ -13,7 +14,5 @@ export interface ICounterPowByValueAction
 
 export const counterPowByValueAction = (
   payload: ICounterPoweByValueActionPayload
-): ICounterPowByValueAction => ({
-  type: CounterActionsNamesEnum.POW_BY_VALUE,
-  payload,
-});
+): ICounterPowByValueAction =>
+  createAction(CounterActionsNamesEnum.POW_BY_VALUE, payload);

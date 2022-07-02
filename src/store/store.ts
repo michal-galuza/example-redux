@@ -1,6 +1,6 @@
 import { legacy_createStore as createStore } from "redux";
-import { counterReducer } from "./counter/counter-reducer";
+import { rootReducer } from "./rootReducer";
 
-export const store = createStore(counterReducer);
+export const store = createStore(rootReducer);
 
-export type RootStoreType = ReturnType<typeof store.getState>;
+export type RootStoreType = ReturnType<typeof rootReducer>;
