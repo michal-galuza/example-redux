@@ -1,10 +1,17 @@
-import { composeWithDevTools } from "@redux-devtools/extension";
-import { legacy_createStore as createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { createApiProviders } from "./api-providers";
 import { rootReducer } from "./rootReducer";
 
-const composeEnhancers = composeWithDevTools();
+export const store = configureStore({
+  reducer: rootReducer,
+  devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          apiProviders: createApiProviders(),
+        },
+      },
+    }),
+});
 
-export const store = createStore(rootReducer, composeEnhancers);
-
-export type AppDispatch = typeof store.dispatch;
-export type RootStoreType = ReturnType<typeof rootReducer>;

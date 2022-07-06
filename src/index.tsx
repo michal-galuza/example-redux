@@ -5,10 +5,16 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { StrictMode } from "react";
+import { worker } from "./mocks/api/api";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+if (process.env.NODE_ENV === "development") {
+  worker.start({ onUnhandledRequest: "bypass" });
+}
+
 root.render(
   <StrictMode>
     <Provider store={store}>
