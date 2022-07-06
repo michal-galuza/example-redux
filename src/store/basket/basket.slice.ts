@@ -32,10 +32,13 @@ const basketSlice = createSlice({
     removeProduct: (state, { payload: { id } }: IRemoveProduct) => {
       state.basket = state.basket.filter((p) => p.id !== id);
     },
+    clearBasket: (state) => {
+      state.basket = [];
+    },
   },
 });
 
-export const { addProduct, editQuantityProduct, removeProduct } =
+export const { addProduct, editQuantityProduct, removeProduct, clearBasket } =
   basketSlice.actions;
 
 export const baskteStateSelector = (state: RootStoreType) => state.basket;

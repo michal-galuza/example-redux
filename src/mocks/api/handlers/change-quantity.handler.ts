@@ -36,7 +36,7 @@ export const changeQuantityProductHandler =
         return res(ctx.status(404));
       }
       const basketProduct = basket.products[basketProductIndex];
-      const newQuantity = basketProduct.quantity + quantity;
+      const newQuantity =  quantity;
 
       basket.products[basketProductIndex] = {
         ...basketProduct,

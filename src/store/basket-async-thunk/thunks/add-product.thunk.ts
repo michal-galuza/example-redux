@@ -14,7 +14,7 @@ export const addProductThunk = createAsyncThunk<
   ThunkOptions
 >(BasketAsyncThunkNameEnum.ADD, async (payload, thunkAPI) => {
   const {
-    basketAsync: { id: basketId },
+    basketAsyncThunk: { id: basketId },
   } = thunkAPI.getState();
 
   const data = await thunkAPI.extra.apiProviders.basketApi.addProduct({

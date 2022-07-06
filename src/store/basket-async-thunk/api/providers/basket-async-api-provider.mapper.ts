@@ -1,4 +1,4 @@
-import { IBasketAsyncState } from "../../basket-async.state";
+import { IBasketAsyncState } from "../../basket-async-thunk.state";
 import { IAddProductHttpResponse } from "../responses/add-product.http-response";
 import { IChangeQuantityProductHttpResponse } from "../responses/change-quantity.http-response";
 import { IClearBasketHttpResponse } from "../responses/clear-basket.http-response";

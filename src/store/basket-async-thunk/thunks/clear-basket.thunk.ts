@@ -9,7 +9,7 @@ export const clearBasketThunk = createAsyncThunk<
   ThunkOptions
 >(BasketAsyncThunkNameEnum.CLEAR_BASKET, async (_payload, thunkAPI) => {
   const {
-    basketAsync: { id: basketId },
+    basketAsyncThunk: { id: basketId },
   } = thunkAPI.getState();
 
   const data = await thunkAPI.extra.apiProviders.basketApi.clearBasket({

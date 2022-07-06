@@ -14,7 +14,7 @@ export const changeQuantityProductThunk = createAsyncThunk<
   ThunkOptions
 >(BasketAsyncThunkNameEnum.CHANGE_QUANTITY, async (payload, thunkAPI) => {
   const {
-    basketAsync: { id: basketId },
+    basketAsyncThunk: { id: basketId },
   } = thunkAPI.getState();
   
   const data =

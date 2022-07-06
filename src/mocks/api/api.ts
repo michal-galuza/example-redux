@@ -6,7 +6,7 @@ import { removeProductHandler } from "./handlers/remove-product.handler";
 
 export const worker = setupWorker(
   addProductHandler,
+  clearBasketHandler,
   changeQuantityProductHandler,
-  removeProductHandler,
-  clearBasketHandler
+  removeProductHandler
 );

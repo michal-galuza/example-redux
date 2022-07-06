@@ -13,7 +13,7 @@ export const removeProductThunk = createAsyncThunk<
   ThunkOptions
 >(BasketAsyncThunkNameEnum.REMOVE, async (payload, thunkAPI) => {
   const {
-    basketAsync: { id: basketId },
+    basketAsyncThunk: { id: basketId },
   } = thunkAPI.getState();
 
   const data = await thunkAPI.extra.apiProviders.basketApi.removeProduct({

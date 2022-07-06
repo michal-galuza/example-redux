@@ -1,19 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootStoreType } from "../types";
-import { basketAsyncInitialState } from "./basket-async.state";
+import { basketAsyncInitialState } from "./basket-async-thunk.state";
 import { addProductThunk } from "./thunks/add-product.thunk";
 import { changeQuantityProductThunk } from "./thunks/change-quantity.thunk";
 import { clearBasketThunk } from "./thunks/clear-basket.thunk";
 import { removeProductThunk } from "./thunks/remove-product.thunk";
 
-const basketAsyncSlice = createSlice({
+const basketAsyncThunkSlice = createSlice({
   initialState: basketAsyncInitialState,
-  name: "basket-async",
+  name: "basketAsyncThunk",
   reducers: {},
   extraReducers(builder) {
     builder
       .addCase(addProductThunk.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.basket = payload.basket;
         state.id = payload.id;
       })
@@ -32,6 +31,7 @@ const basketAsyncSlice = createSlice({
   },
 });
 
-export const baskteStateSelector = (state: RootStoreType) => state.basket;
+export const baskteAsyncThunkStateSelector = (state: RootStoreType) =>
+  state.basketAsyncThunk;
 
-export default basketAsyncSlice.reducer;
+export const basketAsyncThunkReducer = basketAsyncThunkSlice.reducer;

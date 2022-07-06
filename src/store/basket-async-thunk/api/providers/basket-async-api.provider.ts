@@ -1,5 +1,5 @@
 import { apiClient } from "../../../../api/api.client";
-import { IBasketAsyncState } from "../../basket-async.state";
+import { IBasketAsyncState } from "../../basket-async-thunk.state";
 import {
   IAddProductParams,
   IBasketApi,
@@ -7,7 +7,7 @@ import {
   IEditProductParams,
   IRemoveProductParams,
 } from "../basket-async.api-inteface";
-import { IBasketAsyncHttpResponse } from "../responses/basket-http.response";
+import { IAddProductHttpResponse } from "../responses/add-product.http-response";
 import { IChangeQuantityProductHttpResponse } from "../responses/change-quantity.http-response";
 import { IClearBasketHttpResponse } from "../responses/clear-basket.http-response";
 import { IRemoveProductHttpResponse } from "../responses/remove-product.http-response";
@@ -19,7 +19,7 @@ export class BasketAsyncApiProvider implements IBasketApi {
   public async addProduct(
     params: IAddProductParams
   ): Promise<IBasketAsyncState> {
-    const res = await this.apiClient.post<IBasketAsyncHttpResponse>(
+    const res = await this.apiClient.post<IAddProductHttpResponse>(
       `/basket/${encodeURIComponent(params.basketId)}`,
       params
     );
@@ -62,6 +62,7 @@ export class BasketAsyncApiProvider implements IBasketApi {
     const res = await this.apiClient.delete<IClearBasketHttpResponse>(
       `/basket/${encodeURIComponent(params.basketId)}/clear`
     );
+
     return BasketAsyncApiProviderMapper.mapClearBasketResponseToBasketState(
       res.data
     );

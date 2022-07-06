@@ -1,4 +1,4 @@
-import { IBasketAsyncState } from "../basket-async.state";
+import { IBasketAsyncState } from "../basket-async-thunk.state";
 
 export interface IAddProductParams {
   basketId: string;

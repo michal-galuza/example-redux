@@ -1,10 +1,14 @@
-import { BasketAsyncApiProvider } from "./basket-async/api/providers/basket-async-api.provider";
+import { IBasketApi } from "./basket-async-thunk/api/basket-async.api-inteface";
+import { BasketAsyncApiProvider } from "./basket-async-thunk/api/providers/basket-async-api.provider";
 
-export const apiProviders = {
+
+export interface IApiProviders {
+  basketApi: IBasketApi;
+}
+
+export const apiProviders: IApiProviders = {
   basketApi: new BasketAsyncApiProvider(),
 };
-
-export type IApiProviders = typeof apiProviders;
 
 export const createApiProviders = (
   customApiProviders?: IApiProviders

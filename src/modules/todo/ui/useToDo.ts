@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { RootStoreType } from "../../../store/store";
 import { todoRemoveAction } from "../../../store/todo/actions";
+import { RootStoreType } from "../../../store/types";
 
 export const useToDo = () => {
   const todoState = useSelector((state: RootStoreType) => state.todo);
